@@ -1,0 +1,18 @@
+Tutorial link: https://www.atlassian.com/git/tutorials/dotfiles
+
+## Setting up the .myconf repo
+git init --bare $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config config --local status.showUntrackedFiles no
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> $HOME/.bashrc
+
+## Example to add files to the repo
+config status
+config add .vimrc
+config commit -m "Add vimrc"
+config add .bashrc
+config commit -m "Add bashrc"
+config push
+
+
+
